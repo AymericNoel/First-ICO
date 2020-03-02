@@ -23,7 +23,6 @@ const Web3 = require("web3");
 // const infuraKey = "fj4jll3k.....";
 //
 //const fs = require('fs');
-const mnemonic = "glance fold unveil sample grocery gain curve enhance humble laugh garage throw";
 require('dotenv').config()
 module.exports = {
   /**
