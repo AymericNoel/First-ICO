@@ -7,10 +7,11 @@ contract ICO is ERC20{
 
     struct user{
         address eth_adress;
-        uint16 rank;
+        uint256 rank;
     }
-    address private _owner;
+    address payable private  _owner;
     user[] private _whiteList;
+    address private myContract = address(this);
     event addCustomer (bool added);
 
     constructor() public{
@@ -58,12 +59,16 @@ contract ICO is ERC20{
         _mint(_receiver, _amount);
     }
 
-    function _receiveToken() public payable {
+    function receiveToken() public payable {
         bool exist;
-        (exist,) = ExistInList(msg.sender);
-        require(exist,"Must be in list of donaters");
         uint256 id;
-        (,id) = ExistInList(msg.sender);
-        _mint(msg.sender, msg.value * _whiteList[id].rank);
+        (exist,id) = ExistInList(msg.sender);
+        require(exist,"Must be in list of donaters");
+        _mint(msg.sender,(uint256(msg.value) * _whiteList[id].rank));
+    }
+    function getEther() public payable OnlyOwner{
+        if (myContract.balance >= 2){
+            _owner.transfer(myContract.balance);
+        }
     }
 }

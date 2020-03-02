@@ -15,9 +15,12 @@
 
 - Only the deployer of the contract, that means me, can add user to the whitelist
 
-- Top deploy to Rinkerby Testnet, I have downloaded the *truffle HD wallet* package from npm, then I have created an account on infura to have an API KEY to connect truffle to my HD wallet on metamask. And then from the console I deploy my contracts using "truffle console --network rinkeby" and then "truffle deploy". I interacted with my contract from this console with "let ico = await ICO.deployed()" etc... or from *metamask* and *Mycrypto.com* with the ABI.
+- To deploy to Rinkerby Testnet, I have downloaded the *truffle HD wallet* package from npm, then I have created an account on infura to have an API KEY to connect truffle to my HD wallet on metamask. And then from the console I deploy my contracts using "truffle console --network rinkeby" and then "truffle deploy". I interacted with my contract from this console with "let ico = await ICO.deployed()" etc... or from *metamask* and *Mycrypto.com* with the ABI.
 
-- I sent "AYM" token to the address of the teacher. He can verify it with the function _balanceOf(address my_address).
+- I sent 2 "AYM" token to the address of the teacher : "0x6F891Cc103F5F320C129Baeb6622f52E15522527". He can verify it with the function _balanceOf(address my_address).
 
-**Contract Address (ICO) : 0x753C968C1554C76C398483A5fA314d4393FA6a49**
+- I run several tests with the *command truffle test* with node 11 because node 12 isn't compatible
+
+**Contract Address (ICO) : 0x3c111D5F733c21553D80443F968872d5C3149a15**
+
 **You can access the ABI on the directory build\contracts**
